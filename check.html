@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Content Toggle with Effects</title>
+<style>
+    body{
+        background-color: aquamarine;
+        backface-visibility: visible;
+        background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f9e090a9-09b0-4e25-bb89-16245e5d6538/d52ve4v-00db98da-d610-47d3-a903-d7791f55b5a2.png/v1/fill/w_1115,h_717/kuro_chii_s_birthday_by_unknownwittness_d52ve4v-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTY0NSIsInBhdGgiOiJcL2ZcL2Y5ZTA5MGE5LTA5YjAtNGUyNS1iYjg5LTE2MjQ1ZTVkNjUzOFwvZDUydmU0di0wMGRiOThkYS1kNjEwLTQ3ZDMtYTkwMy1kNzc5MWY1NWI1YTIucG5nIiwid2lkdGgiOiI8PTI1NTkifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.y6E99itaj_Qic1Wb_AvTGPH5HbL5LQwqFuSJS-lwxKI');
+        background-size:cover;
+
+    }
+  .event-content {
+    display: none;
+    
+  } 
+  
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .event-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: aquamarine;
+  }
+  
+  .event-container {
+    border: 1px solid #ccc;
+    background-color:rgba(39, 188, 188, 0.096);
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    
+  }
+  
+  .event-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .event-list li {
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #1984c6c8;
+    background-color:none;
+  }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  
+$(document).ready(function() {
+  $(".event-content").hide();
+
+  $("#marriage-btn").click(function() {
+    $(".event-content").fadeOut(0, function() {
+      $("#marriage-content").fadeIn(2000);
+    });
+  });
+
+  $("#birthday-btn").click(function() {
+    $("#marriage-content").fadeOut(0); 
+    $("#birthday-content").slideDown(500).fadeIn(500);
+    $("#birthday-content").slideUp(5000);
+  });
+
+});
+</script>
+</head>
+<body>
+<div class="button-container">
+  <button id="marriage-btn" class="event-button">Marriage</button>
+  <button id="birthday-btn" class="event-button">Birthday</button>
+  
+</div>
+
+<div id="marriage-content" class="event-content">
+  <div class="event-container">
+    <ul class="event-list">
+      <li>Guest list</li>
+      <li>Venue details</li>
+      <li>Menu</li>
+    </ul>
+  </div>
+</div>
+
+<div id="birthday-content" class="event-content">
+  <div class="event-container">
+    <ul class="event-list">
+      <li>Guests</li>
+      <li>Theme</li>
+      <li>Activities</li>
+    </ul>
+  </div>
+</div>
+
+</body>
+</html>
